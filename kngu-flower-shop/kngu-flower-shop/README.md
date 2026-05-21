@@ -63,7 +63,7 @@ Located in the "Craft Your Masterpiece" section, this widget mimics a complex e-
 
 ## Folder Structure
 
-/magical-flora
+/kngu-flower-shop
 ├── index.html       # Main HTML document containing markup and JS logic
 ├── style.css        # Custom CSS for scrollbar hiding and minor overrides
 ├── README.md        # Project documentation
