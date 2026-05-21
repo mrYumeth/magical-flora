@@ -296,24 +296,24 @@
                         <span class="text-brand-orange text-xs font-bold tracking-widest uppercase mb-2 block">Bespoke Service</span>
                         <h2 class="font-serif text-3xl md:text-4xl text-neutral-900 mb-8">Build Your Bouquet</h2>
 
-                        <form class="space-y-8">
+<form class="space-y-8" id="bouquet-form">
                             <div>
                                 <h4 class="text-sm font-semibold text-neutral-900 uppercase tracking-wide mb-4">1. Select Your Base</h4>
                                 <div class="grid grid-cols-3 gap-3">
                                     <label class="cursor-pointer">
-                                        <input type="radio" name="base" class="peer sr-only" checked>
+                                        <input type="radio" name="base" value="Roses" class="peer sr-only" checked onchange="renderFlowerOptions()">
                                         <div class="text-center p-3 border border-gray-200 rounded-lg peer-checked:border-brand-orange peer-checked:bg-orange-50 hover:border-brand-orange transition">
                                             <span class="block text-sm font-medium">Roses</span>
                                         </div>
                                     </label>
                                     <label class="cursor-pointer">
-                                        <input type="radio" name="base" class="peer sr-only">
+                                        <input type="radio" name="base" value="Tulips" class="peer sr-only" onchange="renderFlowerOptions()">
                                         <div class="text-center p-3 border border-gray-200 rounded-lg peer-checked:border-brand-orange peer-checked:bg-orange-50 hover:border-brand-orange transition">
                                             <span class="block text-sm font-medium">Tulips</span>
                                         </div>
                                     </label>
                                     <label class="cursor-pointer">
-                                        <input type="radio" name="base" class="peer sr-only">
+                                        <input type="radio" name="base" value="Mixed" class="peer sr-only" onchange="renderFlowerOptions()">
                                         <div class="text-center p-3 border border-gray-200 rounded-lg peer-checked:border-brand-orange peer-checked:bg-orange-50 hover:border-brand-orange transition">
                                             <span class="block text-sm font-medium">Mixed</span>
                                         </div>
@@ -322,35 +322,17 @@
                             </div>
 
                             <div>
-                                <h4 class="text-sm font-semibold text-neutral-900 uppercase tracking-wide mb-4">2. Artisan Add-Ons</h4>
-                                <p class="text-xs text-gray-500 mb-3">Pair your blooms with our signature handcrafted treats.</p>
-                                <div class="space-y-3">
-                                    <label class="flex items-center justify-between p-4 border border-gray-200 rounded-lg cursor-pointer hover:border-brand-orange transition">
-                                        <div class="flex items-center gap-3">
-                                            <input type="checkbox" class="w-4 h-4 text-brand-orange rounded border-gray-300 focus:ring-brand-orange">
-                                            <span class="text-sm font-medium">Teyara Real Cinnamon Marshmallows</span>
-                                        </div>
-                                        <span class="text-sm text-gray-500">+$12</span>
-                                    </label>
-                                    <label class="flex items-center justify-between p-4 border border-gray-200 rounded-lg cursor-pointer hover:border-brand-orange transition">
-                                        <div class="flex items-center gap-3">
-                                            <input type="checkbox" class="w-4 h-4 text-brand-orange rounded border-gray-300 focus:ring-brand-orange">
-                                            <span class="text-sm font-medium">Teyara Pepper & Vanilla Marshmallows</span>
-                                        </div>
-                                        <span class="text-sm text-gray-500">+$14</span>
-                                    </label>
-                                    <label class="flex items-center justify-between p-4 border border-gray-200 rounded-lg cursor-pointer hover:border-brand-orange transition">
-                                        <div class="flex items-center gap-3">
-                                            <input type="checkbox" class="w-4 h-4 text-brand-orange rounded border-gray-300 focus:ring-brand-orange">
-                                            <span class="text-sm font-medium">Teyara Tamarind Marshmallows</span>
-                                        </div>
-                                        <span class="text-sm text-gray-500">+$12</span>
-                                    </label>
+                                <div class="flex justify-between items-end mb-4">
+                                    <h4 class="text-sm font-semibold text-neutral-900 uppercase tracking-wide">2. Select Your Blooms</h4>
+                                    <span id="flower-counter" class="text-xs font-bold text-brand-orange bg-orange-50 px-2 py-1 rounded">0 / 12 Stems</span>
                                 </div>
+                                <p class="text-xs text-gray-500 mb-3">Mix and match up to 12 stems to complete your arrangement.</p>
+                                
+                                <div id="dynamic-flower-options" class="space-y-3"></div>
                             </div>
 
-                            <button type="button" class="w-full bg-neutral-900 text-white font-semibold text-sm tracking-wide py-4 rounded-lg hover:bg-brand-orange transition-all duration-300">
-                                ADD TO CART - $85.00
+                            <button type="button" id="add-to-cart-btn" class="w-full bg-neutral-900 text-white font-semibold text-sm tracking-wide py-4 rounded-lg hover:bg-brand-orange transition-all duration-300">
+                                ADD TO CART - $45.00
                             </button>
                         </form>
                     </div>
@@ -737,7 +719,121 @@
 
         // Start the rotation on page load
         startSlideInterval();
+
+// --- CUSTOM BOUQUET BUILDER LOGIC ---
+        
+        // 1. Define the flower options for each base
+        const bouquetData = {
+            'Roses': [
+                { id: 'r1', name: 'Classic Red Roses', price: 5 },
+                { id: 'r2', name: 'Blush Pink Roses', price: 5 },
+                { id: 'r3', name: 'Pristine White Roses', price: 6 }
+            ],
+            'Tulips': [
+                { id: 't1', name: 'Sunny Yellow Tulips', price: 4 },
+                { id: 't2', name: 'Deep Purple Tulips', price: 4 },
+                { id: 't3', name: 'Soft Pink Tulips', price: 5 }
+            ],
+            'Mixed': [
+                { id: 'm1', name: 'Red Roses', price: 5 },
+                { id: 'm2', name: 'Yellow Tulips', price: 4 },
+                { id: 'm3', name: 'Blue Hydrangeas', price: 8 },
+                { id: 'm4', name: 'Golden Sunflowers', price: 6 }
+            ]
+        };
+
+        let currentSelections = {};
+        const MAX_FLOWERS = 12;
+        const BASE_PRICE = 0; // Updated to start at $0
+
+        // 2. Render the options based on the selected radio button
+        function renderFlowerOptions() {
+            const selectedBase = document.querySelector('input[name="base"]:checked').value;
+            const container = document.getElementById('dynamic-flower-options');
+            const options = bouquetData[selectedBase];
+            
+            // Reset selections when base changes
+            currentSelections = {};
+            options.forEach(opt => currentSelections[opt.id] = 0);
+            
+            // Generate the HTML for the options
+            container.innerHTML = options.map(flower => `
+                <div class="flex items-center justify-between p-3 border border-gray-200 rounded-lg">
+                    <div>
+                        <span class="text-sm font-medium block">${flower.name}</span>
+                        <span class="text-xs text-gray-500">+$${flower.price} per stem</span>
+                    </div>
+                    <div class="flex items-center gap-3 bg-gray-50 rounded-lg p-1 border border-gray-100">
+                        <button type="button" onclick="updateStemCount('${flower.id}', -1, ${flower.price})" class="w-7 h-7 rounded bg-white border border-gray-200 flex items-center justify-center hover:text-brand-orange hover:border-brand-orange transition">-</button>
+                        <span id="qty-${flower.id}" class="text-sm font-bold w-4 text-center">0</span>
+                        <button type="button" onclick="updateStemCount('${flower.id}', 1, ${flower.price})" class="w-7 h-7 rounded bg-white border border-gray-200 flex items-center justify-center hover:text-brand-orange hover:border-brand-orange transition">+</button>
+                    </div>
+                </div>
+            `).join('');
+
+            updateTotals();
+        }
+
+        // 3. Handle adding/removing stems
+        function updateStemCount(flowerId, change, price) {
+            const currentTotalStems = Object.values(currentSelections).reduce((a, b) => a + b, 0);
+            
+            // Prevent going over 12 or under 0
+            if (change > 0 && currentTotalStems >= MAX_FLOWERS) {
+                alert("You have reached the maximum limit of 12 stems for this bouquet.");
+                return;
+            }
+            if (change < 0 && currentSelections[flowerId] <= 0) return;
+
+            // Update state and UI
+            currentSelections[flowerId] += change;
+            document.getElementById(`qty-${flowerId}`).innerText = currentSelections[flowerId];
+            
+            updateTotals();
+        }
+
+        // 4. Update the visual counter and total price
+        function updateTotals() {
+            const totalStems = Object.values(currentSelections).reduce((a, b) => a + b, 0);
+            document.getElementById('flower-counter').innerText = `${totalStems} / 12 Stems`;
+            
+            // Calculate dynamic price
+            let extraCost = 0;
+            const selectedBase = document.querySelector('input[name="base"]:checked').value;
+            
+            bouquetData[selectedBase].forEach(flower => {
+                extraCost += (currentSelections[flower.id] * flower.price);
+            });
+
+            const finalPrice = BASE_PRICE + extraCost;
+            document.getElementById('add-to-cart-btn').innerText = `ADD TO CART - $${finalPrice.toFixed(2)}`;
+        }
+
+        // 5. NEW: Add to Cart Validation Logic
+        function handleAddToCart() {
+            const totalStems = Object.values(currentSelections).reduce((a, b) => a + b, 0);
+            
+            if (totalStems !== MAX_FLOWERS) {
+                alert("Wait! Please select exactly 12 flowers to complete your custom bouquet.");
+            } else {
+                alert("Items successfully added to cart.");
+            }
+        }
+
+        // Initialize the form on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            renderFlowerOptions(); // Load initial options
+            
+            // Attach the validation click event to the button
+            const addToCartBtn = document.getElementById('add-to-cart-btn');
+            if (addToCartBtn) {
+                addToCartBtn.addEventListener('click', handleAddToCart);
+            }
+        });
+
     </script>
     
 </body>
 </html>
+
+
