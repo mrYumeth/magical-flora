@@ -19,9 +19,9 @@
                     },
                     colors: {
                         brand: {
-                            orange: '#f25a38', // The vibrant CTA color from the sample
-                            dark: '#1c1c1c',   // Footer/Text dark color
-                            bgLight: '#f9f9f9' // Light gray backgrounds
+                            orange: '#f25a38', 
+                            dark: '#1c1c1c',   
+                            bgLight: '#f9f9f9' 
                         }
                     }
                 }
@@ -32,6 +32,7 @@
 </head>
 <body class="font-sans text-neutral-800 antialiased bg-white">
 
+    // Header section Linking
     <header class="border-b border-gray-100 sticky top-0 bg-white z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <div class="flex items-center gap-2">
@@ -62,6 +63,7 @@
     </header>
 
 <main>
+        // Offers and Exporing Carousel
         <section id="home" class="relative bg-brand-bgLight overflow-hidden group min-h-[600px] flex items-center">
             
             <div class="hero-slide absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-100 z-10 flex items-center">
@@ -144,6 +146,7 @@
             </button>
         </section>
 
+        // General Information Section 
         <section class="py-12 border-b border-gray-100 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -193,6 +196,7 @@
         </section>
     </main>
 
+        // New Products Data and UI
         <section id="shop" class="py-20 bg-white">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     
@@ -279,67 +283,67 @@
                 </div>
             </section>
 
-    <section class="py-24 bg-brand-bgLight">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="bg-white rounded-3xl shadow-xl overflow-hidden flex flex-col lg:flex-row">
-                    
-                    <div class="w-full lg:w-1/2 relative min-h-[400px] lg:min-h-[600px]">
-                        <img src="https://images.unsplash.com/photo-1572454591674-2739f30d8c40?q=80&w=800&auto=format&fit=crop" 
-                             alt="Custom Bouquet Assembly" 
-                             class="absolute inset-0 w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
-                            <h3 class="text-white font-serif text-3xl">Craft Your Masterpiece</h3>
+            // Custom Bouquet Creation Data and UI
+            <section class="py-24 bg-brand-bgLight">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="bg-white rounded-3xl shadow-xl overflow-hidden flex flex-col lg:flex-row">
+                            
+                            <div class="w-full lg:w-1/2 relative min-h-[400px] lg:min-h-[600px]">
+                                <img src="https://images.unsplash.com/photo-1572454591674-2739f30d8c40?q=80&w=800&auto=format&fit=crop" 
+                                    alt="Custom Bouquet Assembly" 
+                                    class="absolute inset-0 w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
+                                    <h3 class="text-white font-serif text-3xl">Craft Your Masterpiece</h3>
+                                </div>
+                            </div>
+                            <div class="w-full lg:w-1/2 p-8 lg:p-12">
+                                <span class="text-brand-orange text-xs font-bold tracking-widest uppercase mb-2 block">Bespoke Service</span>
+                                <h2 class="font-serif text-3xl md:text-4xl text-neutral-900 mb-8">Build Your Bouquet</h2>
+
+            <form class="space-y-8" id="bouquet-form">
+                                        <div>
+                                            <h4 class="text-sm font-semibold text-neutral-900 uppercase tracking-wide mb-4">1. Select Your Base</h4>
+                                            <div class="grid grid-cols-3 gap-3">
+                                                <label class="cursor-pointer">
+                                                    <input type="radio" name="base" value="Roses" class="peer sr-only" checked onchange="renderFlowerOptions()">
+                                                    <div class="text-center p-3 border border-gray-200 rounded-lg peer-checked:border-brand-orange peer-checked:bg-orange-50 hover:border-brand-orange transition">
+                                                        <span class="block text-sm font-medium">Roses</span>
+                                                    </div>
+                                                </label>
+                                                <label class="cursor-pointer">
+                                                    <input type="radio" name="base" value="Tulips" class="peer sr-only" onchange="renderFlowerOptions()">
+                                                    <div class="text-center p-3 border border-gray-200 rounded-lg peer-checked:border-brand-orange peer-checked:bg-orange-50 hover:border-brand-orange transition">
+                                                        <span class="block text-sm font-medium">Tulips</span>
+                                                    </div>
+                                                </label>
+                                                <label class="cursor-pointer">
+                                                    <input type="radio" name="base" value="Mixed" class="peer sr-only" onchange="renderFlowerOptions()">
+                                                    <div class="text-center p-3 border border-gray-200 rounded-lg peer-checked:border-brand-orange peer-checked:bg-orange-50 hover:border-brand-orange transition">
+                                                        <span class="block text-sm font-medium">Mixed</span>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="flex justify-between items-end mb-4">
+                                                <h4 class="text-sm font-semibold text-neutral-900 uppercase tracking-wide">2. Select Your Blooms</h4>
+                                                <span id="flower-counter" class="text-xs font-bold text-brand-orange bg-orange-50 px-2 py-1 rounded">0 / 12 Stems</span>
+                                            </div>
+                                            <p class="text-xs text-gray-500 mb-3">Mix and match up to 12 stems to complete your arrangement.</p>
+                                            
+                                            <div id="dynamic-flower-options" class="space-y-3"></div>
+                                        </div>
+
+                                        <button type="button" id="add-to-cart-btn" class="w-full bg-neutral-900 text-white font-semibold text-sm tracking-wide py-4 rounded-lg hover:bg-brand-orange transition-all duration-300">
+                                            ADD TO CART - $45.00
+                                        </button>
+                                    </form>
+                            </div>
                         </div>
                     </div>
+                </section>
 
-                    <div class="w-full lg:w-1/2 p-8 lg:p-12">
-                        <span class="text-brand-orange text-xs font-bold tracking-widest uppercase mb-2 block">Bespoke Service</span>
-                        <h2 class="font-serif text-3xl md:text-4xl text-neutral-900 mb-8">Build Your Bouquet</h2>
-
-<form class="space-y-8" id="bouquet-form">
-                            <div>
-                                <h4 class="text-sm font-semibold text-neutral-900 uppercase tracking-wide mb-4">1. Select Your Base</h4>
-                                <div class="grid grid-cols-3 gap-3">
-                                    <label class="cursor-pointer">
-                                        <input type="radio" name="base" value="Roses" class="peer sr-only" checked onchange="renderFlowerOptions()">
-                                        <div class="text-center p-3 border border-gray-200 rounded-lg peer-checked:border-brand-orange peer-checked:bg-orange-50 hover:border-brand-orange transition">
-                                            <span class="block text-sm font-medium">Roses</span>
-                                        </div>
-                                    </label>
-                                    <label class="cursor-pointer">
-                                        <input type="radio" name="base" value="Tulips" class="peer sr-only" onchange="renderFlowerOptions()">
-                                        <div class="text-center p-3 border border-gray-200 rounded-lg peer-checked:border-brand-orange peer-checked:bg-orange-50 hover:border-brand-orange transition">
-                                            <span class="block text-sm font-medium">Tulips</span>
-                                        </div>
-                                    </label>
-                                    <label class="cursor-pointer">
-                                        <input type="radio" name="base" value="Mixed" class="peer sr-only" onchange="renderFlowerOptions()">
-                                        <div class="text-center p-3 border border-gray-200 rounded-lg peer-checked:border-brand-orange peer-checked:bg-orange-50 hover:border-brand-orange transition">
-                                            <span class="block text-sm font-medium">Mixed</span>
-                                        </div>
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="flex justify-between items-end mb-4">
-                                    <h4 class="text-sm font-semibold text-neutral-900 uppercase tracking-wide">2. Select Your Blooms</h4>
-                                    <span id="flower-counter" class="text-xs font-bold text-brand-orange bg-orange-50 px-2 py-1 rounded">0 / 12 Stems</span>
-                                </div>
-                                <p class="text-xs text-gray-500 mb-3">Mix and match up to 12 stems to complete your arrangement.</p>
-                                
-                                <div id="dynamic-flower-options" class="space-y-3"></div>
-                            </div>
-
-                            <button type="button" id="add-to-cart-btn" class="w-full bg-neutral-900 text-white font-semibold text-sm tracking-wide py-4 rounded-lg hover:bg-brand-orange transition-all duration-300">
-                                ADD TO CART - $45.00
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-
+        // Featured Items Data and UI   
         <section class="py-20 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12">
@@ -350,7 +354,6 @@
                         <button class="hover:text-neutral-900 transition pb-1">Best Sellers</button>
                     </div>
                 </div>
-
                 <div class="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-6 h-auto md:h-[600px]">
                     <div class="md:col-span-2 md:row-span-2 relative rounded-xl overflow-hidden group cursor-pointer h-[400px] md:h-auto">
                         <img src="https://images.unsplash.com/photo-1561897519-6e4fbd1fbc41?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?q=80&w=1200&auto=format&fit=crop" alt="Lily Majesty Palm" class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition duration-700">
@@ -385,6 +388,7 @@
             </div>
         </section>
 
+        // Flower Experts Section Data and UI
         <section class="py-20 bg-brand-bgLight">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <h2 class="font-serif text-3xl md:text-4xl font-bold text-neutral-900 mb-4">Flower Experts</h2>
@@ -423,6 +427,7 @@
             </div>
         </section>
 
+        // Blog Section Data and UI
         <section id="blog" class="py-20 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <h2 class="font-serif text-3xl md:text-4xl font-bold text-neutral-900 mb-12">From Our Blog</h2>
@@ -474,6 +479,7 @@
             </div>
         </section>
 
+        // Newsletter UI
         <section class="py-16 bg-brand-bgLight text-center border-t border-gray-200">
             <div class="max-w-2xl mx-auto px-4">
                 <h2 class="font-serif text-3xl text-neutral-900 mb-8">Join The Colorful Bunch!</h2>
@@ -485,82 +491,84 @@
             </div>
         </section>
 
-<footer id="contact" class="bg-brand-dark text-white pt-20 pb-8">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
-                    
-                    <div class="lg:col-span-2">
-                        <span class="font-serif text-3xl font-bold tracking-wide block mb-6">Magical Flora.</span>
-                        <p class="text-sm text-gray-400 font-light mb-6 max-w-sm">A perfect blend of creativity, energy, communication, happiness and love. Let us arrange a smile for you.</p>
+        // Footer Data and UI
+        <footer id="contact" class="bg-brand-dark text-white pt-20 pb-8">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         
-                        <ul class="text-sm text-gray-400 font-light mb-8 space-y-3">
-                            <li class="flex items-start gap-3">
-                                <svg class="w-5 h-5 text-brand-orange shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                                <span>356, St. Petersburg, U.S.A</span>
-                            </li>
-                            <li class="flex items-center gap-3">
-                                <svg class="w-5 h-5 text-brand-orange shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-                                <a href="tel:+8611223344" class="hover:text-white transition">+86 1122 3344</a>
-                            </li>
-                            <li class="flex items-center gap-3">
-                                <svg class="w-5 h-5 text-brand-orange shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                                <a href="mailto:info@magicalflora.com" class="hover:text-white transition">info@magicalflora.com</a>
-                            </li>
-                        </ul>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
+                            
+                            <div class="lg:col-span-2">
+                                <span class="font-serif text-3xl font-bold tracking-wide block mb-6">Magical Flora.</span>
+                                <p class="text-sm text-gray-400 font-light mb-6 max-w-sm">A perfect blend of creativity, energy, communication, happiness and love. Let us arrange a smile for you.</p>
+                                
+                                <ul class="text-sm text-gray-400 font-light mb-8 space-y-3">
+                                    <li class="flex items-start gap-3">
+                                        <svg class="w-5 h-5 text-brand-orange shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                        <span>356, St. Petersburg, U.S.A</span>
+                                    </li>
+                                    <li class="flex items-center gap-3">
+                                        <svg class="w-5 h-5 text-brand-orange shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                                        <a href="tel:+8611223344" class="hover:text-white transition">+86 1122 3344</a>
+                                    </li>
+                                    <li class="flex items-center gap-3">
+                                        <svg class="w-5 h-5 text-brand-orange shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                                        <a href="mailto:info@magicalflora.com" class="hover:text-white transition">info@magicalflora.com</a>
+                                    </li>
+                                </ul>
 
-                        <div class="flex gap-4">
-                            <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-orange transition"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg></a>
-                            <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-orange transition"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
-                            <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-orange transition"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+                                <div class="flex gap-4">
+                                    <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-orange transition"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg></a>
+                                    <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-orange transition"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+                                    <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-orange transition"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h4 class="font-bold text-sm uppercase tracking-widest mb-6">Information</h4>
+                                <ul class="space-y-3 text-sm text-gray-400 font-light">
+                                    <li><a href="#" class="hover:text-brand-orange transition">About Us</a></li>
+                                    <li><a href="#" class="hover:text-brand-orange transition">Store Location</a></li>
+                                    <li><a href="#" class="hover:text-brand-orange transition">Delivery Information</a></li>
+                                    <li><a href="#contact" class="hover:text-brand-orange transition">Contact Us</a></li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <h4 class="font-bold text-sm uppercase tracking-widest mb-6">My Account</h4>
+                                <ul class="space-y-3 text-sm text-gray-400 font-light">
+                                    <li><a href="#" class="hover:text-brand-orange transition">Sign In / Register</a></li>
+                                    <li><a href="#" class="hover:text-brand-orange transition">Order History</a></li>
+                                    <li><a href="#" class="hover:text-brand-orange transition">Track My Order</a></li>
+                                    <li><a href="#" class="hover:text-brand-orange transition">Wishlist</a></li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <h4 class="font-bold text-sm uppercase tracking-widest mb-6">Customer Service</h4>
+                                <ul class="space-y-3 text-sm text-gray-400 font-light">
+                                    <li><a href="#" class="hover:text-brand-orange transition">Flower Care Guide</a></li>
+                                    <li><a href="#" class="hover:text-brand-orange transition">Returns & Refunds</a></li>
+                                    <li><a href="#" class="hover:text-brand-orange transition">FAQ</a></li>
+                                    <li><a href="#" class="hover:text-brand-orange transition">Terms & Conditions</a></li>
+                                </ul>
+                            </div>
+                            
+                        </div> <div class="border-t border-gray-800 pt-8 mt-4 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 font-light w-full">
+                            
+                            <p class="mb-4 md:mb-0 text-center md:text-left">Copyright 2026. All Rights Reserved</p>
+                            
+                            <div class="flex gap-2 items-center justify-center md:justify-end">
+                                <img src="https://cdn.shopify.com/s/assets/payment_icons/visa-319d545c6fd255c9aad5eeaad21fd6f7f7b4fdbdb1a35ce83b89cca12a187f00.svg" alt="Visa" class="h-7 w-auto object-contain bg-white rounded-sm px-1.5 py-1">
+                                <img src="https://cdn.shopify.com/s/assets/payment_icons/master-173035bc8124581983d4efa50cf8626e8553c2b311353fbf67485f9c1a2b88d1.svg" alt="Mastercard" class="h-7 w-auto object-contain bg-white rounded-sm px-1.5 py-1">
+                                <img src="https://cdn.shopify.com/s/assets/payment_icons/paypal-49e4c1e03244b6d2de0d270ca0d22dd15da6e92cc7266e93eb43762df5aa355d.svg" alt="PayPal" class="h-7 w-auto object-contain bg-white rounded-sm px-1.5 py-1">
+                                <img src="https://cdn.shopify.com/s/assets/payment_icons/american_express-2264c9b8b57b23b0b0831827e90cd7bcda2836adc42a912ebedf545dead35b20.svg" alt="American Express" class="h-7 w-auto object-contain bg-white rounded-sm px-1.5 py-1">
+                            </div>
+
                         </div>
                     </div>
+                </footer>
 
-                    <div>
-                        <h4 class="font-bold text-sm uppercase tracking-widest mb-6">Information</h4>
-                        <ul class="space-y-3 text-sm text-gray-400 font-light">
-                            <li><a href="#" class="hover:text-brand-orange transition">About Us</a></li>
-                            <li><a href="#" class="hover:text-brand-orange transition">Store Location</a></li>
-                            <li><a href="#" class="hover:text-brand-orange transition">Delivery Information</a></li>
-                            <li><a href="#contact" class="hover:text-brand-orange transition">Contact Us</a></li>
-                        </ul>
-                    </div>
-
-                    <div>
-                        <h4 class="font-bold text-sm uppercase tracking-widest mb-6">My Account</h4>
-                        <ul class="space-y-3 text-sm text-gray-400 font-light">
-                            <li><a href="#" class="hover:text-brand-orange transition">Sign In / Register</a></li>
-                            <li><a href="#" class="hover:text-brand-orange transition">Order History</a></li>
-                            <li><a href="#" class="hover:text-brand-orange transition">Track My Order</a></li>
-                            <li><a href="#" class="hover:text-brand-orange transition">Wishlist</a></li>
-                        </ul>
-                    </div>
-
-                    <div>
-                        <h4 class="font-bold text-sm uppercase tracking-widest mb-6">Customer Service</h4>
-                        <ul class="space-y-3 text-sm text-gray-400 font-light">
-                            <li><a href="#" class="hover:text-brand-orange transition">Flower Care Guide</a></li>
-                            <li><a href="#" class="hover:text-brand-orange transition">Returns & Refunds</a></li>
-                            <li><a href="#" class="hover:text-brand-orange transition">FAQ</a></li>
-                            <li><a href="#" class="hover:text-brand-orange transition">Terms & Conditions</a></li>
-                        </ul>
-                    </div>
-                    
-                </div> <div class="border-t border-gray-800 pt-8 mt-4 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 font-light w-full">
-                    
-                    <p class="mb-4 md:mb-0 text-center md:text-left">Copyright 2026. All Rights Reserved</p>
-                    
-                    <div class="flex gap-2 items-center justify-center md:justify-end">
-                        <img src="https://cdn.shopify.com/s/assets/payment_icons/visa-319d545c6fd255c9aad5eeaad21fd6f7f7b4fdbdb1a35ce83b89cca12a187f00.svg" alt="Visa" class="h-7 w-auto object-contain bg-white rounded-sm px-1.5 py-1">
-                        <img src="https://cdn.shopify.com/s/assets/payment_icons/master-173035bc8124581983d4efa50cf8626e8553c2b311353fbf67485f9c1a2b88d1.svg" alt="Mastercard" class="h-7 w-auto object-contain bg-white rounded-sm px-1.5 py-1">
-                        <img src="https://cdn.shopify.com/s/assets/payment_icons/paypal-49e4c1e03244b6d2de0d270ca0d22dd15da6e92cc7266e93eb43762df5aa355d.svg" alt="PayPal" class="h-7 w-auto object-contain bg-white rounded-sm px-1.5 py-1">
-                        <img src="https://cdn.shopify.com/s/assets/payment_icons/american_express-2264c9b8b57b23b0b0831827e90cd7bcda2836adc42a912ebedf545dead35b20.svg" alt="American Express" class="h-7 w-auto object-contain bg-white rounded-sm px-1.5 py-1">
-                    </div>
-
-                </div>
-            </div>
-        </footer>
-
+        // Login Model UI
         <div id="loginModal" class="fixed inset-0 z-[100] flex items-center justify-center hidden">
         <div class="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity" id="loginBackdrop"></div>
         
@@ -597,6 +605,7 @@
         </div>
     </div>
 
+    // Adding to cart Data and UI
     <div id="cartDrawer" class="fixed inset-0 z-[100] flex justify-end hidden">
         <div class="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity" id="cartBackdrop"></div>
         
@@ -606,8 +615,7 @@
                 <button id="closeCart" class="text-gray-400 hover:text-brand-orange transition p-2">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                 </button>
-            </div>
-            
+            </div>            
             <div class="flex-1 overflow-y-auto p-6 space-y-6">
                 <div class="flex gap-4">
                     <img src="https://images.unsplash.com/photo-1591886960571-74d43a9d4166?q=80&w=150&auto=format&fit=crop" class="w-20 h-20 object-cover rounded-lg">
@@ -627,6 +635,7 @@
                 </div>
             </div>
             
+            // Class for Custom Bouquet Checkout
             <div class="p-6 border-t border-gray-100 bg-gray-50">
                 <div class="flex justify-between font-bold text-neutral-900 mb-4">
                     <span>Subtotal</span>
@@ -634,14 +643,14 @@
                 </div>
                 <p class="text-xs text-gray-500 mb-4 text-center">Shipping and taxes calculated at checkout.</p>
                 <button type="button" class="w-full bg-brand-orange text-white font-semibold text-sm tracking-wide py-4 rounded-lg hover:bg-orange-600 transition-all duration-300">
-                    PROCEED TO CHECKOUT
+                PROCEED TO CHECKOUT
                 </button>
             </div>
         </div>
     </div>
 
     <script>
-        // --- LOGIN MODAL LOGIC ---
+        // LOGIN MODEL LOGIC
         const btnLogin = document.getElementById('btn-login');
         const loginModal = document.getElementById('loginModal');
         const closeLogin = document.getElementById('closeLogin');
@@ -655,7 +664,7 @@
         closeLogin.addEventListener('click', toggleLogin);
         loginBackdrop.addEventListener('click', toggleLogin);
 
-        // --- CART DRAWER LOGIC ---
+        // CART DRAWER LOGIC
         const btnCart = document.getElementById('btn-cart');
         const cartDrawer = document.getElementById('cartDrawer');
         const cartPanel = document.getElementById('cartPanel');
@@ -664,7 +673,6 @@
 
         function openCart() {
             cartDrawer.classList.remove('hidden');
-            // Small timeout to allow display:block to apply before animating transform
             setTimeout(() => {
                 cartPanel.classList.remove('translate-x-full');
             }, 10);
@@ -672,7 +680,6 @@
 
         function closeCartDrawer() {
             cartPanel.classList.add('translate-x-full');
-            // Wait for animation to finish before hiding the container
             setTimeout(() => {
                 cartDrawer.classList.add('hidden');
             }, 300);
@@ -682,7 +689,7 @@
         closeCart.addEventListener('click', closeCartDrawer);
         cartBackdrop.addEventListener('click', closeCartDrawer);
 
-        // --- HERO SLIDER LOGIC ---
+        // HERO SLIDER LOGIC
         const slides = document.querySelectorAll('.hero-slide');
         const prevBtn = document.getElementById('prevSlide');
         const nextBtn = document.getElementById('nextSlide');
@@ -691,17 +698,15 @@
 
         // Function to handle switching slides
         function showSlide(index) {
-            // Remove active classes from all slides
+
             slides.forEach(slide => {
                 slide.classList.remove('opacity-100', 'z-10');
                 slide.classList.add('opacity-0', 'z-0');
             });
             
-            // Handle looping
             if (index >= slides.length) currentSlide = 0;
             if (index < 0) currentSlide = slides.length - 1;
             
-            // Add active classes to the current slide
             slides[currentSlide].classList.remove('opacity-0', 'z-0');
             slides[currentSlide].classList.add('opacity-100', 'z-10');
         }
@@ -729,16 +734,14 @@
             startSlideInterval();
         }
 
-        // Event Listeners for the arrow buttons
         nextBtn.addEventListener('click', goToNextSlide);
         prevBtn.addEventListener('click', goToPrevSlide);
 
-        // Start the rotation on page load
         startSlideInterval();
-
-// --- CUSTOM BOUQUET BUILDER LOGIC ---
         
-        // 1. Define the flower options for each base
+        // CUSTOM BOUQUET BUILDER LOGIC 
+        
+        // Define the flower options for each base
         const bouquetData = {
             'Roses': [
                 { id: 'r1', name: 'Classic Red Roses', price: 5 },
@@ -760,9 +763,9 @@
 
         let currentSelections = {};
         const MAX_FLOWERS = 12;
-        const BASE_PRICE = 0; // Updated to start at $0
+        const BASE_PRICE = 0; 
 
-        // 2. Render the options based on the selected radio button
+        // Render the options based on the selected radio button
         function renderFlowerOptions() {
             const selectedBase = document.querySelector('input[name="base"]:checked').value;
             const container = document.getElementById('dynamic-flower-options');
@@ -790,7 +793,7 @@
             updateTotals();
         }
 
-        // 3. Handle adding/removing stems
+        // Handle adding/removing stems
         function updateStemCount(flowerId, change, price) {
             const currentTotalStems = Object.values(currentSelections).reduce((a, b) => a + b, 0);
             
@@ -808,12 +811,11 @@
             updateTotals();
         }
 
-        // 4. Update the visual counter and total price
+        // Update the visual counter and total price
         function updateTotals() {
             const totalStems = Object.values(currentSelections).reduce((a, b) => a + b, 0);
             document.getElementById('flower-counter').innerText = `${totalStems} / 12 Stems`;
             
-            // Calculate dynamic price
             let extraCost = 0;
             const selectedBase = document.querySelector('input[name="base"]:checked').value;
             
@@ -825,7 +827,7 @@
             document.getElementById('add-to-cart-btn').innerText = `ADD TO CART - $${finalPrice.toFixed(2)}`;
         }
 
-        // 5. NEW: Add to Cart Validation Logic
+        // Add to Cart Validation Logic
         function handleAddToCart() {
             const totalStems = Object.values(currentSelections).reduce((a, b) => a + b, 0);
             
@@ -838,7 +840,7 @@
 
         // Initialize the form on page load
         document.addEventListener('DOMContentLoaded', () => {
-            renderFlowerOptions(); // Load initial options
+            renderFlowerOptions(); 
             
             // Attach the validation click event to the button
             const addToCartBtn = document.getElementById('add-to-cart-btn');
@@ -850,4 +852,4 @@
     </script>
     
 </body>
-</html>
+</html> 
